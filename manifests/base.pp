@@ -15,7 +15,7 @@ class sysctl::base (
 ) inherits ::sysctl::params {
   # Hiera support
   if $hiera_merge_values == true {
-    $values_real = lookup('sysctl::base::values', {})
+    $values_real = lookup('sysctl::base::values', Hash, hash, {})
   } else {
     $values_real = $values
   }
